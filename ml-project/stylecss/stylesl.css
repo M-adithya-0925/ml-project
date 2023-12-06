@@ -1,0 +1,71 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f3eb; /* Light beige background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    padding: 20px;
+    text-align: center;
+    transform: perspective(1000px) rotateY(20deg);
+    transition: transform 0.5s;
+}
+
+.card:hover {
+    transform: perspective(1000px) rotateY(0deg);
+}
+
+h1 {
+    color: #6b4226; /* Earthy brown color */
+    font-size: 24px;
+}
+
+form {
+    margin-top: 20px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #5c9e42; /* Green color */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #4a7e35; /* Darker green color on hover */
+}
+
+/* Existing CSS styles for the card, button, etc. */
+
+.back-link {
+    display: block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #5c9e42; /* Green color, matching the button */
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.back-link:hover {
+    color: #4a7e35; /* Darker green color on hover */
+}

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest Plant Growth Checker</title>
+    <header>
+        <h1>Ayurvedic Plants Recognition</h1>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="relcam.html">Capture Photo</a></li>
+            <li><a href="weather.html">predict plant growth</a></li>
+            <li><a href="product real.html">ayurvedic Store</a></li>
+            <li><a href="edu.html">Ayurveda</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+    <div id="google_translate_element"></div>
+    <div id="content"></div>
+
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script src="edu.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin: 0;
+            overflow: hidden;
+            background-image: url('https://th.bing.com/th/id/OIP.om59jLAbF8OfrSk3iMuFeAHaEo?w=3840&h=2400&rs=1&pid=ImgDetMain'); /* Assuming the image is in the 'imgs' directory */
+            background-size: cover;
+        }
+        header {
+            background-color: #009688;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+        nav {
+            background-color: #00796b;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+        
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        #container {
+            position: relative;
+        }
+
+        #sun {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: #FFD700; /* Gold */
+            border-radius: 50%;
+            animation: rotateSun 10s linear infinite;
+        }
+
+        @keyframes rotateSun {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .cloud {
+            position: absolute;
+            width: 150px;
+            height: 80px;
+            background-image: url('https://www.freepnglogos.com/uploads/cloud-png/real-cloud-picture-8.png');
+            background-size: cover;
+            border-radius: 20px;
+            animation-duration: 20s;
+            animation-iteration-count: infinite;
+        }
+        
+        #cloud1 {
+            top: 50px;
+            left: -150px;
+            animation-name: moveCloud1;
+        }
+        
+        #cloud2 {
+            top: 200px;
+            left: -150px;
+            animation-name: moveCloud2;
+        }
+        
+        #cloud3 {
+            top: 500px;
+            left: -300px;
+            width: 100px;
+            height: 50px;
+            background-image: url('https://www.pngarts.com/files/1/Clouds-PNG-Pic.png');
+            animation-name: moveCloud3;
+            opacity: 0.6;
+        }
+        
+        #cloud4 {
+            top: 550px;
+            left: -250px;
+            width: 120px;
+            height: 60px;
+            background-image: url('https://www.freepnglogos.com/uploads/cloud-png/real-cloud-picture-8.png');
+            animation-name: moveCloud4;
+            opacity: 0.8;
+        }
+        
+        #cloud5 {
+            top: 420px;
+            left: -400px;
+            width: 80px;
+            height: 40px;
+            background-image: url('https://www.freepnglogos.com/uploads/cloud-png/real-cloud-picture-8.png');
+            animation-name: moveCloud5;
+            opacity: 0.7;
+        }
+        
+        @keyframes moveCloud1 {
+            0% {
+                transform: translateX(-150px);
+            }
+            100% {
+                transform: translateX(calc(100vw + 150px));
+            }
+        }
+        
+        @keyframes moveCloud2 {
+            0% {
+                transform: translateX(-150px);
+            }
+            100% {
+                transform: translateX(calc(100vw + 150px));
+            }
+        }
+        
+        @keyframes moveCloud3 {
+            0% {
+                transform: translateX(-300px);
+            }
+            100% {
+                transform: translateX(calc(150vw + 300px));
+            }
+        }
+        
+        @keyframes moveCloud4 {
+            0% {
+                transform: translateX(-250px);
+            }
+            100% {
+                transform: translateX(calc(300vw + 250px));
+            }
+        }
+        
+        @keyframes moveCloud5 {
+            0% {
+                transform: translateX(-400px);
+            }
+            100% {
+                transform: translateX(calc(500vw + 400px));
+            }
+        }
+
+        #inbox {
+            background-color: #8B4513; /* Saddle Brown */
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: left;
+            max-width: 400px;
+            margin: auto;
+        }
+
+        #inbox h2 {
+            margin-bottom: 10px;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            max-width: 400px;
+            margin: auto;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        #leafButton {
+            background-color: #4CAF50; /* Green */
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        #leafButton:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="sun"></div>
+        <div class="cloud" id="cloud1"></div>
+        <div class="cloud" id="cloud2"></div>
+        
+
+
+        <div class="form-container">
+            <h1 style="color: #228B22;">Forest Plant Growth Checker</h1>
+            <p style="color: #2E8B57;">Enter your information:</p>
+
+            <label for="location">Location:</label>
+            <select id="location">
+                <option value="New York">New York</option>
+                <option value="London">London</option>
+                <option value="Tokyo">Tokyo</option>
+                <!-- Add more locations as needed -->
+            </select>
+
+            <label for="plant">Plant:</label>
+            <input type="text" id="plant" placeholder="Enter the plant name">
+
+            <button id="leafButton" onclick="checkGrowth()">Check Growth</button>
+        </div>
+        <div class="cloud" id="cloud3"></div>
+        <div class="cloud" id="cloud4"></div>
+        <div class="cloud" id="cloud5"></div>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function checkGrowth() {
+            var location = document.getElementById("location").value;
+            var plant = document.getElementById("plant").value;
+
+            // Use a weather API to get weather information for the given location
+            // Replace 'YOUR_WEATHER_API_KEY' with your actual API key
+            var apiKey = '3ab75856d010a0649730684234905f96';
+            var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    // You may need to adjust this logic based on the actual weather data
+                    var temperature = data.main.temp - 273.15; // Convert temperature to Celsius
+                    var isSuitable = temperature > 15; // Adjust this threshold based on plant requirements
+
+                    var resultElement = document.getElementById("result");
+                    if (isSuitable) {
+                        resultElement.innerHTML = `Yes, the weather in ${location} is suitable for growing ${plant}.`;
+                    } else {
+                        resultElement.innerHTML = `No, the weather in ${location} is not suitable for growing ${plant}.`;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching weather data:', error);
+                    document.getElementById("result").innerHTML = 'Error fetching weather data. Please try again.';
+                });
+        }
+    </script>
+</body>
+</html>

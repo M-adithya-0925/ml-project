@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Camera Photo Capture and Data Insertion</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #009688; /* Ayurvedic green color */
+            padding: 20px;
+        }
+
+        h2 {
+            color: #009688;
+        }
+
+        #camera-feed, #captured-photo {
+            display: block;
+            margin: 0 auto;
+        }
+
+        #capture-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #009688;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #capture-button:hover {
+            background-color: #00796b; /* Darker shade of green on hover */
+        }
+
+        #dataForm {
+            max-width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+            color: #009688;
+        }
+        nav {
+    background-color: #00796b;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        input[type="file"] {
+            margin-top: 10px;
+        }
+
+        #output {
+            margin: 20px auto;
+            max-width: 500px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Camera Photo Capture and Data Insertion</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="product.html">ayurvedic Store</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+
+    
+   
+    <h2>Data Insertion Form with Photo Upload</h2>
+    <form id="dataForm" enctype="multipart/form-data">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+
+        <label for="photo">Upload Photo:</label>
+        <input type="file" id="photo" name="photo" accept="image/*" required><br><br>
+
+        <video id="camera-feed" autoplay></video>
+        <button id="capture-button">Capture Photo</button>
+        <canvas id="photo-canvas" style="display:none;"></canvas>
+        <img id="captured-photo" alt="Captured Photo">
+
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <div id="output">
+        <!-- Display submitted data and uploaded photo here -->
+    </div>
+
+    <script>
+        const videoElement = document.getElementById('camera-feed');
+        const captureButton = document.getElementById('capture-button');
+        const photoCanvas = document.getElementById('photo-canvas');
+        const capturedPhoto = document.getElementById('captured-photo');
+
+        document.getElementById("dataForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+            const photo = document.getElementById("photo").files[0];
+
+            // You can send the data and photo to a server or display them on the webpage
+            const outputDiv = document.getElementById("output");
+            const img = document.createElement("img");
+            img.src = URL.createObjectURL(photo);
+            img.style.maxWidth = "200px"; // Adjust the size as needed
+            outputDiv.innerHTML = `
+                <h2>Submitted Data:</h2>
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Email:</strong> ${email}</p>
+                <p><strong>Message:</strong> ${message}</p>
+                <h2>Uploaded Photo:</h2>
+            `;
+            outputDiv.appendChild(img);
+        });
+
+        async function startCamera() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                videoElement.srcObject = stream;
+            } catch (error) {
+                console.error('Error accessing camera:', error);
+            }
+        }
+
+        function takePhoto() {
+            photoCanvas.width = videoElement.videoWidth;
+            photoCanvas.height = videoElement.videoHeight;
+            photoCanvas.getContext('2d').drawImage(videoElement, 0, 0, photoCanvas.width, photoCanvas.height);
+
+            capturedPhoto.src = photoCanvas.toDataURL('image/jpeg');
+            capturedPhoto.style.display = 'block';
+        }
+
+        captureButton.addEventListener('click', takePhoto);
+
+        // Start the camera when the page loads
+        startCamera();
+    </script>
+</body>
+</html>

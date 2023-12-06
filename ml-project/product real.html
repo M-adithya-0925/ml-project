@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enhanced Shopping Cart</title>
+  <style>
+    /* Basic styling for demonstration purposes */
+    
+    header {
+        background-color: #009688;
+        color: #fff;
+        text-align: center;
+        padding: 20px;
+    }
+    
+    nav {
+        background-color: #00796b;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+    }
+    
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    
+    nav ul li {
+        display: inline;
+        margin-right: 20px;
+    }
+    
+    nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    main {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .product {
+      max-width: 300px;
+      margin: 20px;
+      padding: 10px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .cart {
+      max-width: 400px;
+      margin: 20px;
+      padding: 10px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .ordered-items {
+      max-width: 400px;
+      margin: 20px;
+      padding: 10px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Styles for buttons */
+    .add-to-cart-btn {
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .order-btn,
+    .remove-btn {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 4px 8px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 12px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 4px;
+    }body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+        display: flex;
+        flex-direction: column; /* Change to column direction */
+      }
+      
+      .product {
+        max-width: 300px;
+        margin: 20px auto; /* Center the products horizontally */
+        padding: 10px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      }
+      
+      .product:hover {
+        transform: scale(1.1) rotate(10deg); /* Adjust the rotation angle as needed */
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      }
+      
+      
+  </style>
+  
+</head>
+
+<body>
+    <header>
+        <h1>ayurvedic store</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="relcam.html">Capture Photo</a></li>
+            <li><a href="weather.html">predict plant growth</a></li>
+            <li><a href="product real.html">ayurvedic Store</a></li>
+            <li><a href="edu.html">Ayurveda</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+
+    <div id="google_translate_element"></div>
+    <div id="content"></div>
+
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script src="edu.js"></script>
+
+    <div class="product" id="product 1">
+        <img src="https://www.santulan.in/wp-content/uploads/2020/04/Baby-Massage-Powder" alt="Product Image">
+        <h2>Product 1</h2>
+        <p>Price: $19.99</p>
+        <button class="add-to-cart-btn" onclick="addToCart('Product 1', 19.99)">Add to Cart</button>
+    </div>
+    
+
+<div class="product" id="product 2">
+    <img src="https://www.santulan.in/wp-content/uploads/2020/04/Body-Lotion-Active1" alt="Product Image">
+    <h2>Product 2</h2>
+    <p>Price: $29.99</p>
+    <button class="add-to-cart-btn" onclick="addToCart('Product 2', 29.99)">Add to Cart</button>
+  </div>
+
+  <div class="product" id="product 3">
+    <img src="https://www.santulan.in/wp-content/uploads/2020/04/Brahmaleen-Oil1" alt="Product Image">
+      <h2>Product 3</h2>
+      <p>Price: $49.99</p>
+      <button class="add-to-cart-btn" onclick="addToCart('Product 3', 49.99)">Add to Cart</button>
+  </div>
+
+  <div class="product" id="product 4">
+    <img src="https://www.santulan.in/wp-content/uploads/2020/04/Honey-1" alt="Product Image">
+      <h2>Product 4</h2>
+      <p>Price: $59.99</p>
+      <button class="add-to-cart-btn" onclick="addToCart('Product 4', 59.99)">Add to Cart</button>
+  </div>
+
+  <div class="product" id="product 5">
+    <img src="https://www.santulan.in/wp-content/uploads/2020/04/Village-Hair-Cream-1" alt="Product Image">
+      <h2>Product 5</h2>
+      <p>Price: $79.99</p>
+      <button class="add-to-cart-btn" onclick="addToCart('Product 5', 79.99)">Add to Cart</button>
+  </div>
+</body>
+
+<div class="cart">
+  <h2>Shopping Cart</h2>
+  <ul id="cartItems"></ul>
+</div>
+
+<div class="ordered-items">
+  <h2>Ordered Items</h2>
+  <ul id="orderedItems"></ul>
+</div>
+
+<button class="add-to-cart-btn"><a href="payment page.html">Buy all</button>
+
+<script>
+  const cart = [];
+  const orderedItems = [];
+
+  function addToCart(productName, productPrice) {
+    const item = { name: productName, price: productPrice };
+    cart.push(item);
+    alert(`${productName} added to cart!`);
+    updateCart();
+  }
+
+  function orderItem(index) {
+    const orderedItem = cart.splice(index, 1)[0];
+    orderedItems.push(orderedItem);
+    alert(`Ordered ${orderedItem.name} for $${orderedItem.price.toFixed(2)}`);
+    updateCart();
+    displayOrderedItems();
+  }
+
+  function removeItem(index) {
+    const removedItem = cart.splice(index, 1)[0];
+    alert(`Removed ${removedItem.name} from the cart`);
+    updateCart();
+  }
+
+  function updateCart() {
+    const cartItemsElement = document.getElementById('cartItems');
+    cartItemsElement.innerHTML = '';
+
+    if (cart.length === 0) {
+      const emptyCartMessage = document.createElement('p');
+      emptyCartMessage.textContent = 'Your cart is empty.';
+      cartItemsElement.appendChild(emptyCartMessage);
+    } else {
+      cart.forEach((item, index) => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+
+        const orderButton = document.createElement('button');
+        orderButton.className = 'order-btn';
+        orderButton.textContent = 'Order';
+        orderButton.onclick = () => orderItem(index);
+
+        const removeButton = document.createElement('button');
+        removeButton.className = 'remove-btn';
+        removeButton.textContent = 'Remove';
+        removeButton.onclick = () => removeItem(index);
+
+        listItem.appendChild(orderButton);
+        listItem.appendChild(removeButton);
+
+        cartItemsElement.appendChild(listItem);
+      });
+    }
+  }
+
+  function displayOrderedItems() {
+    const orderedItemsElement = document.getElementById('orderedItems');
+    orderedItemsElement.innerHTML = '';
+
+    if (orderedItems.length === 0) {
+      const noOrderedItemsMessage = document.createElement('p');
+      noOrderedItemsMessage.textContent = 'No items ordered yet.';
+      orderedItemsElement.appendChild(noOrderedItemsMessage);
+    } else {
+      orderedItems.forEach(item => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+        orderedItemsElement.appendChild(listItem);
+      });
+    }
+  }
+</script>
+
+</html>

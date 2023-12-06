@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Your existing head content -->
+
+    <style>
+        /* Your existing CSS styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #3b5998;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .product {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        h1 {
+            font-family: 'Cursive', sans-serif;
+        }
+
+        .product h2 {
+            color: #3b5998;
+        }
+
+        .product a {
+            display: inline-block;
+            background-color: #3b5998;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .product a:hover {
+            background-color: #2952a3;
+        }
+
+        footer {
+            background-color: #3b5998;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Add styles for the home page link */
+        .home-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+        nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        input[type="file"] {
+            margin-top: 10px;
+        }
+
+        #output {
+            margin: 20px auto;
+            max-width: 500px;
+            text-align: center;
+        }
+        .cart-hover-card {
+            display: none;
+            position: fixed;
+            top: 50px;
+            right: 50px;
+            width: 250px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            z-index: 1000;
+        }
+
+        .cart-hover-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        .cart-hover-card p {
+            margin: 10px 0;
+        }
+
+        .cart-hover-card button {
+            display: block;
+            background-color: #3b5998;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .cart-hover-card button:hover {
+            background-color: #2952a3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Ayurvedic Products Store</h1>
+        <p>Your source for natural well-being</p>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="relcam.html">Capture Photo</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="product.html">Ayurvedic Store</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <!-- Product 1 -->
+        <div class="product">
+            <img src="algel.jfif" alt="Product Image">
+            <h2>SBL Neem Face Wash for Acne</h2>
+            <p>Squeeze small amount onto hand and work into rich lather with little water. Massage gently on face in circular motion using finger tips. Wash off the face and pat dry. Use twice daily. Regular use of SBL’s Neem face wash gives clean, clear and pimple-free skin.</p>
+            <p>Price: ₹139.99</p>
+            <button class="button add-to-cart" onclick="addToCart({
+                imageSrc: 'algel.jfif',
+                title: 'SBL Neem Face Wash for Acne',
+                description: 'Squeeze small amount onto hand and work into rich lather with little water. Massage gently on face in circular motion using finger tips. Wash off the face and pat dry. Use twice daily. Regular use of SBL’s Neem face wash gives clean, clear and pimple-free skin.',
+                price: 139.99
+            })">Add to Cart</button>
+            <a href="https://pharmayush.com/sbl-neem-face-wash-for-acne-pimples-50ml" target="_blank">Buy on Amazon</a>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product">
+            <img src="aloe.jpeg" alt="Aloevera gel">
+            <div class="product-info">
+                <h2>Aloevera gel</h2>
+                <p class="description">Aloe vera gel is a soothing and moisturizing gel made from the aloe vera plant. It's great for skin care and can help with sunburns and dryness.</p>
+                <p class="rating">Rating: <span class="stars">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4.5/5</p>
+                <div class="product-actions">
+                    <button class="button buy-now">Buy Now</button>
+                    <button class="button add-to-cart" onclick="addToCart({
+                        imageSrc: 'aloe.jpeg',
+                        title: 'Aloevera gel',
+                        description: 'Aloe vera gel is a soothing and moisturizing gel made from the aloe vera plant. It\'s great for skin care and can help with sunburns and dryness.',
+                        price: 19.99
+                    })">Add to Cart</button>
+                    <button class="button add-to-favorites">Add to Favorites</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Repeat the above code for each product section -->
+
+        <div class="cart-hover-card" id="cart-hover-card">
+            <img src="" alt="Product Image" id="hover-card-image">
+            <h2 id="hover-card-title"></h2>
+            <p id="hover-card-description"></p>
+            <p id="hover-card-price"></p>
+            <button class="button add-to-cart" onclick="addToCart()">Add to Cart</button>
+        </div>
+        <button class="button buy-all" onclick="buyAll()" href="payment page.html">Buy All</button>
+        <!-- Add more products here -->
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Ayurvedic Products Store</p>
+    </footer>
+
+    <!-- Add this script tag in the <head> or at the end of the <body> section of your HTML document -->
+
+<script>
+    let cartItems = [];
+
+    function addToCart(product) {
+        cartItems.push(product);
+        showCartHoverCard(product);
+        updateCart();
+    }
+
+    function updateCart() {
+        const cartList = document.getElementById("cart-list");
+        const totalPriceElement = document.getElementById("total-price");
+        const itemCountElement = document.getElementById("item-count");
+        const deliveryDateElement = document.getElementById("delivery-date");
+
+        // Clear previous items
+        cartList.innerHTML = "";
+
+        let totalPrice = 0;
+
+        cartItems.forEach(item => {
+            const listItem = document.createElement("li");
+            listItem.textContent = `${item.title} - ₹${item.price.toFixed(2)}`;
+            cartList.appendChild(listItem);
+
+            totalPrice += item.price;
+        });
+
+        totalPriceElement.textContent = `₹${totalPrice.toFixed(2)}`;
+        itemCountElement.textContent = cartItems.length;
+
+        // You can implement logic to calculate the earliest delivery date based on products in the cart
+        // For simplicity, we're using the delivery date of the last added item
+        deliveryDateElement.textContent = cartItems.length > 0 ? cartItems[cartItems.length - 1].deliveryDate : "N/A";
+    }
+
+    function showCartHoverCard(product) {
+        const hoverCard = document.getElementById('cart-hover-card');
+        const imageElement = document.getElementById('hover-card-image');
+        const titleElement = document.getElementById('hover-card-title');
+        const descriptionElement = document.getElementById('hover-card-description');
+        const priceElement = document.getElementById('hover-card-price');
+
+        imageElement.src = product.imageSrc;
+        titleElement.textContent = product.title;
+        descriptionElement.textContent = product.description;
+        priceElement.textContent = `Price: ₹${product.price.toFixed(2)}`;
+
+        hoverCard.style.display = 'block';
+    }
+
+    function hideCartHoverCard() {
+        const hoverCard = document.getElementById('cart-hover-card');
+        hoverCard.style.display = 'none';
+    }
+
+    function checkout() {
+        // Implement logic for final billing and other checkout processes
+
+        // For demonstration purposes, let's just show an alert with the total price
+        const totalPrice = cartItems.reduce((total, item) => total + item.price, 0);
+        alert(`Total Price: ₹${totalPrice.toFixed(2)}\nRedirecting to checkout page...`);
+
+        // You can add further logic for processing the actual payment and order completion
+    }
+
+    function buyAll() {
+    // Implement logic for processing the purchase of all items
+        totalPrice = cartItems.reduce((total, item) => total + item.price, 0);
+        alert(`Total Price: ₹${totalPrice.toFixed(2)}\nRedirecting to checkout page...`);
+
+    if (cartItems.length === 0) {
+        alert("Your cart is empty. Add items before proceeding to checkout.");
+        return;
+    }
+
+    // Calculate the total price
+    const totalPrice = cartItems.reduce((total, item) => total + item.price, 0);
+
+    // For demonstration purposes, let's just show an alert with the total price
+    alert(`Total Price for All Items: ₹${totalPrice.toFixed(2)}`);
+
+    // You can add further logic for processing the actual payment and order completion
+    // For example, redirecting to an actual payment page
+    const paymentPageUrl = 'payment page.html';
+    
+    // If you want to simulate a redirect, you can uncomment the line below
+    // window.location.href = paymentPageUrl;
+
+    // Note: Uncommenting the line above will actually redirect the page, 
+    // so make sure to test it with caution.
+}
+
+</script>
+
+</body>
+</html>

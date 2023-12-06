@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera Photo Capture and Data Insertion</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e6f5ff; /* Light blue background */
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background-color: #5eaf76; /* Green background */
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav ul {
+            background-color: #48a365; /* Dark green background */
+            padding: 10px;
+            list-style-type: none;
+            text-align: center;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff; /* White text color */
+            font-weight: bold;
+        }
+
+        h2 {
+            background-color: #5eaf76; /* Green background */
+            padding: 10px;
+            text-align: center; /* Center the heading */
+        }
+
+        form {
+            background-color: #fff; /* White background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center; /* Center form content */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="file"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Leaf-shaped button */
+        #capture-button {
+            background-color: #48a365; /* Dark green background */
+            color: #fff; /* White text color */
+            border: none;
+            padding: 5px 10px; /* Smaller padding */
+            cursor: pointer;
+            border-radius: 30px; /* Rounded corners */
+            display: block;
+            margin: 0 auto; /* Center the button */
+        }
+
+        #capture-button:hover {
+            background-color: #378a56; /* Darker green on hover */
+        }
+
+        video {
+            max-width: 20%;
+            display: block;
+            margin: 0 auto; /* Center the video */
+        }
+
+        img {
+            max-width: 20%;
+            border-radius: 5px;
+            display: block;
+            margin: 0 auto; /* Center the image */
+        }
+
+        #download-link {
+            background-color: #48a365; /* Dark green background */
+            color: #fff; /* White text color */
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            display: none;
+            margin-top: 10px;
+            border-radius: 30px; /* Rounded corners */
+            display: block;
+            margin: 0 auto; /* Center the button */
+        }
+
+        #download-link:hover {
+            background-color: #378a56; /* Darker green on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Camera Photo Capture and Data Insertion</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="relcam.html">Capture Photo</a></li>
+            <li><a href="weather.html">predict plant growth</a></li>
+            <li><a href="product real.html">ayurvedic Store</a></li>
+            <li><a href="edu.html">Ayurveda</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+    <div id="google_translate_element"></div>
+    <div id="content"></div>
+
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script src="edu.js"></script>
+
+    <h2>Data Insertion Form with Photo Upload</h2>
+    <form id="dataForm" action="/identify_plant" method="POST" enctype="multipart/form-data">
+        <label for="photo">Upload Photo:</label>
+        <input type="file" id="filePhoto" accept="image/*">
+        <button id="capture-button">Capture Photo</button><br><br>
+
+        <video id="camera-feed" autoplay></video>
+        <canvas id="photo-canvas" style="display:none;"></canvas>
+        <img id="captured-photo" alt="Captured Photo">
+
+        <p>If you want, you can mention the plant's name below:</p>
+        <input type="text" id="plantName" name="plantName" placeholder="Plant Name"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <div id="output">
+        <!-- Display submitted data and uploaded photo here -->
+    </div>
+
+    <script>
+        const videoElement = document.getElementById('camera-feed');
+        const captureButton = document.getElementById('capture-button');
+        const photoCanvas = document.getElementById('photo-canvas');
+        const capturedPhoto = document.getElementById('captured-photo');
+        const filePhotoInput = document.getElementById('filePhoto');
+
+        document.getElementById("dataForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const plantName = document.getElementById("plantName").value;
+            const photo = filePhotoInput.files[0] || dataURLtoBlob(capturedPhoto.src);
+            
+            // Save the captured photo to a file
+            saveCapturedPhoto(photo, 'your_folder_name'); // Replace 'your_folder_name' with the desired folder name
+
+            // Display submitted data and uploaded photo here
+            const outputDiv = document.getElementById("output");
+            const img = document.createElement("img");
+            img.src = URL.createObjectURL(photo);
+            img.style.maxWidth = "200px"; // Adjust the size as needed
+            outputDiv.innerHTML = `
+                <h2>Submitted Data:</h2>
+                ${plantName ? `<p><strong>Plant Name:</strong> ${plantName}</p>` : ''}
+                <h2>Uploaded Photo:</h2>
+            `;
+            outputDiv.appendChild(img);
+        });
+
+        async function startCamera() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                videoElement.srcObject = stream;
+            } catch (error) {
+                console.error('Error accessing camera:', error);
+            }
+        }
+
+        function takePhoto() {
+            photoCanvas.width = videoElement.videoWidth;
+            photoCanvas.height = videoElement.videoHeight;
+            photoCanvas.getContext('2d').drawImage(videoElement, 0, 0, photoCanvas.width, photoCanvas.height);
+
+            capturedPhoto.src = photoCanvas.toDataURL('image/jpeg');
+            capturedPhoto.style.display = 'block';
+        }
+
+        captureButton.addEventListener('click', takePhoto);
+
+        function dataURLtoBlob(dataURL) {
+            const parts = dataURL.split(';base64,');
+            const contentType = parts[0].split(':')[1];
+            const byteString = atob(parts[1]);
+            const arrayBuffer = new ArrayBuffer(byteString.length);
+            const uint8Array = new Uint8Array(arrayBuffer);
+
+            for (let i = 0; i < byteString.length; i++) {
+                uint8Array[i] = byteString.charCodeAt(i);
+            }
+
+            return new Blob([arrayBuffer], { type: contentType });
+        }
+
+        function saveCapturedPhoto(photo, folderName) {
+             const blob = new Blob([photo], { type: 'image/jpeg' });
+            const fileName = `${folderName}/photo.jpg`; // Specify the folder and filename
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = fileName;
+            a.style.display = 'none';
+            document.body.appendChild(a);
+            a.click();
+            URL.revokeObjectURL(a.href);
+            document.body.removeChild(a);
+
+            document.getElementById("dataForm").addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const form = new FormData(this);
+    const response = await fetch('/identify_plant', {
+        method: 'POST',
+        body: form
+    });
+
+    const result = await response.json();
+
+    // Display the result on the web page
+    const outputDiv = document.getElementById("output");
+    outputDiv.innerHTML = `
+        <h2>Identification Result:</h2>
+        <p>${result.plantName}</p>
+        <h2>Uploaded Photo:</h2>
+        <img src="${result.photoUrl}" style="max-width: 200px;">
+    `;
+    });
+
+        }
+
+// Usage example:
+        // Specify the folder name
+        const folderName = 'C:\Users\Admin\Desktop\positive rebel\test_set';
+        saveCapturedPhoto(capturedPhoto, folderName);
+        // Start the camera when the page loads
+        startCamera();
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #009688;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+nav {
+    background-color: #00796b;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+body {
+    background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.livemint.com%2Fscience%2Fhealth%2Fcovid19-six-at-home-ayurvedic-remedies-to-boost-your-immunity-read-here-11652004427042.html&psig=AOvVaw13qx0sDek2FPJBj1Nb0c5h&ust=1701868437407000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCNDin4-w-IIDFQAAAAAdAAAAABAJ');
+    background-size: cover; /* Adjust as needed */
+    background-repeat: no-repeat; /* Prevent image from repeating */
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #009688;
+}
+
+p {
+    line-height: 1.5;
+}
+
+/* Additional styles can be added as needed for specific elements */

@@ -1,0 +1,110 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #222;
+    color: #fff;
+    margin: 0;
+}
+
+.fire-theme {
+    background-color: #ff5722;
+    color: #fff;
+}
+
+nav, ul, li {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+nav {
+    text-align: center;
+    margin: 10px 0;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #009688;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+nav {
+    background-color: #00796b;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fire-theme {
+    animation: fadeIn 1s ease-in-out;
+}
+/* Apply to all h4 tags */
+h4 {
+    color: #000; /* Black color */
+}
+
+/* Apply to a specific h4 tag with a class */
+h4.special {
+    color: #000; /* Black color */
+}
+
+/* Apply to a specific h4 tag with an ID */
+#uniqueH4 {
+    color: #000; /* Black color */
+}

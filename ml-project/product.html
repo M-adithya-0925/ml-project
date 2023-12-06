@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayurvedic Products Store</title>
+    <!-- Add your CSS styles for the Ayurvedic theme here -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #3b5998;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .product {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        h1 {
+            font-family: 'Cursive', sans-serif;
+        }
+
+        .product h2 {
+            color: #3b5998;
+        }
+
+        .product a {
+            display: inline-block;
+            background-color: #3b5998;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .product a:hover {
+            background-color: #2952a3;
+        }
+
+        footer {
+            background-color: #3b5998;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+
+        /* Add styles for the home page link */
+        .home-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+        nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        input[type="file"] {
+            margin-top: 10px;
+        }
+
+        #output {
+            margin: 20px auto;
+            max-width: 500px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Ayurvedic Products Store</h1>
+        <p>Your source for natural well-being</p>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="relcam.html">Capture Photo</a></li>
+                <li><a href="contact.html">Contact</a></li> <!-- New tab for Contact Page -->
+                <li><a href="weather.html">predict plant growth</a></li>
+            <li><a href="product real.html">ayurvedic Store</a></li>
+                <li><a href="login.html">Login</a></li> <!-- New tab for Login Page -->
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="product">
+            <img src="algel.jfif" alt="Product Image">
+            <h2>SBL Neem Face Wash for Acne</h2>
+            <p>Squeeze small amount onto hand and work into rich lather with little water. Massage gently on face in circular motion using finger tips. Wash off the face and pat dry. Use twice daily. Regular use of SBL’s Neem face wash gives clean, clear and pimple-free skin.</p>
+            <p>Price: ₹139.99</p>
+            <a href="https://pharmayush.com/sbl-neem-face-wash-for-acne-pimples-50ml" target="_blank">Buy now</a>
+        </section>
+        <div class="product">
+            <img src="aloe.jpeg" alt="Aloevera gel">
+            <div class="product-info">
+                <h2>Aloevera gel</h2>
+                <p class="description">Aloe vera gel is a soothing and moisturizing gel made from the aloe vera plant. It's great for skin care and can help with sunburns and dryness..</p>
+                <p class="rating">Rating: <span class="stars">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4.5/5</p>
+                <div class="product-actions">
+                    <button class="button buy-now">Buy Now</button>
+                    <button class="button add-to-cart" onclick="addToCart()">Add to Cart</button>
+                    <button class="button add-to-favorites">Add to Favorites</button>
+                </div>
+            </div>
+        </div>
+        <div class="product">
+            <img src="rose.webp" alt="Product 2">
+            <div class="product-info">
+                <h2>Rose water</h2>
+                <p class="description"></p>Rosewater is a fragrant liquid made by steeping rose petals in water. It's commonly used in skincare, as it can help hydrate and refresh the skin. Some people also use it as a natural toner or facial mist.
+                <p class="rating">Rating: <span class="stars">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4.5/5</p>
+                <div class="product-actions">
+                    <button class="button buy-now">Buy Now</button>
+                    <button class="button add-to-cart" onclick="addToCart()">Add to Cart</button>
+                    <button class="button add-to-favorites">Add to Favorites</button>
+                </div>
+            </div>
+        </div>
+        <div class="product">
+            <img src="multani.webp" alt="Product 3">
+            <div class="product-info">
+                <h2>Multani Mitti</h2>
+                <p class="description">Multani mitti, also known as Fuller's earth, is a type of clay that is widely used in skincare. It has bsorbent properties and is often used as a face mask to help remove excess oil, dirt, and impurities from the skin. It can also help improve the appearance of pores and leave the skin feeling refreshed and revitalized.</p>
+                <p class="rating">Rating: <span class="stars">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4.5/5</p>
+                <div class="product-actions">
+                    <button class="button buy-now">Buy Now</button>
+                    <button class="button add-to-cart" onclick="addToCart()">Add to Cart</button>
+                    <button class="button add-to-favorites">Add to Favorites</button>
+                </div>
+            </div>
+        </div><div class="product">
+            <img src="neem.jpg" alt="Product 4">
+            <div class="product-info">
+                <h2>Neem anti-acne & pimple clear cream</h2>
+                <p class="description">Neem anti-acne and pimple cream is a specialized cream that contains neem extract. It is designed to target acne and pimples, helping to reduce inflammation, control excess oil, and prevent further breakouts. The antibacterial properties of neem can help fight acne-causing bacteria, while the nourishing ingredients soothe and heal the skin. It's a great option for those looking for a natural and effective solution to combat acne and pimples.</p>
+                <p class="rating">Rating: <span class="stars">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4.5/5</p>
+                <div class="product-actions">
+                    <button class="button buy-now">Buy Now</button>
+                    <button class="button add-to-cart" onclick="addToCart()">Add to Cart</button>
+                    <button class="button add-to-favorites">Add to Favorites</button>
+                </div>
+            </div>
+        </div><div class="product">
+            <img src="beetroot.webp" alt="Product 5">
+            <div class="product-info">
+                <h2>Beetroot & caffeine face mask</h2>
+                <p class="description">A beetroot caffeine face mask combines beetroot and caffeine for skin rejuvenation. Beetroot's antioxidants and vitamins, along with caffeine's anti-puffiness and circulation benefits, brighten and refresh your complexion. Make it by blending beetroot and coffee grounds, applying for 15-20 minutes, and rinsing for a natural glow.</p>
+                <p class="rating">Rating: <span class="stars">&#9733; &#9733; &#9733; &#9733; &#9734;</span> 4.5/5</p>
+                <div class="product-actions">
+                    <button class="button buy-now">Buy Now</button>
+                    <button class="button add-to-cart" onclick="addToCart()">Add to Cart</button>
+                    <button class="button add-to-favorites">Add to Favorites</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="cart">
+            <h2>Shopping Cart</h2>
+            <ul id="cart-list">
+                <!-- Cart items will be added here dynamically -->
+            </ul>
+            <p>Total Price: $<span id="total-price">0.00</span></p>
+            <p>Number of Items: <span id="item-count">0</span></p>
+            <p>Estimated Delivery Date: <span id="delivery-date">N/A</span></p>
+            <button class="button checkout" onclick="checkout()">Checkout</button>
+        </div>
+    
+        <script>
+            let cartItems = [];
+            
+            function addToCart() {
+                const product = {
+                    name: "Beetroot & Caffeine Face Mask",
+                    price: 10.99, // Replace with the actual price
+                    deliveryDate: "2023-12-01" // Replace with the estimated delivery date
+                };
+    
+                cartItems.push(product);
+    
+                updateCart();
+            }
+    
+            function updateCart() {
+                const cartList = document.getElementById("cart-list");
+                const totalPriceElement = document.getElementById("total-price");
+                const itemCountElement = document.getElementById("item-count");
+                const deliveryDateElement = document.getElementById("delivery-date");
+    
+                // Clear previous items
+                cartList.innerHTML = "";
+    
+                let totalPrice = 0;
+    
+                cartItems.forEach(item => {
+                    const listItem = document.createElement("li");
+                    listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+                    cartList.appendChild(listItem);
+    
+                    totalPrice += item.price;
+                });
+    
+                totalPriceElement.textContent = totalPrice.toFixed(2);
+                itemCountElement.textContent = cartItems.length;
+    
+                // You can implement logic to calculate the earliest delivery date based on products in the cart
+                // For simplicity, we're using the delivery date of the last added item
+                deliveryDateElement.textContent = cartItems.length > 0 ? cartItems[cartItems.length - 1].deliveryDate : "N/A";
+            }
+    
+            function checkout() {
+                // Implement logic for final billing and other checkout processes
+                alert("Redirecting to checkout page...");
+            }
+        </script>
+        
+        
+        <!-- Add more products here -->
+
+        <!-- Add more Ayurvedic product sections as needed -->
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Ayurvedic Products Store</p>
+    </footer>
+
+</body>
+</html>
